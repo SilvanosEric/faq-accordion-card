@@ -3,3 +3,123 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .card {
+    background-color: white;
+    border-radius: theme("borderRadius.3xl");
+    padding: theme("padding.6");
+    padding-bottom: theme("padding.12");
+    background-image: url("images/bg-pattern-mobile.svg");
+    background-position: center top, center top -5rem;
+    background-repeat: no-repeat;
+    box-shadow: 0 3rem 2rem -1rem hsl(252, 48%, 49%);
+    max-width: 57.5rem;
+  }
+
+  @media (min-width: theme("screens.xl")) {
+    .card {
+      padding-block: theme("padding.12");
+      padding-bottom: theme("padding.16");
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "img body";
+      background-image: url("images/illustration-woman-online-desktop.svg"),
+        url("images/bg-pattern-desktop.svg");
+      background-position: left -5.5rem top 5rem, left -36rem top -18rem;
+      background-size: auto, auto;
+      background-repeat: no-repeat, no-repeat;
+    }
+  }
+
+  @media (max-width: theme("screens.lg")) {
+    .card {
+      max-width: theme("maxWidth.xl");
+    }
+  }
+
+  .illustration {
+    max-width: 14rem;
+    transform: translateY(-75%);
+    margin-inline: auto;
+  }
+
+  @media (min-width: theme("screens.xl")) {
+    .illustration {
+      transform: translateX(-22%);
+      max-width: 120%;
+      margin-top: theme("margin.6");
+    }
+
+    .illustration-box {
+      transform: translate(-60%, 85%);
+    }
+  }
+
+  .card__title {
+    text-align: center;
+    font-weight: bold;
+    font-size: theme("fontSize.3xl");
+    margin-top: -4rem;
+  }
+
+  @media (min-width: theme("screens.xl")) {
+    .card__title {
+      margin-top: auto;
+      text-align: start;
+    }
+
+    .card__title + details {
+      margin-top: theme("margin.5");
+    }
+  }
+
+  .card__body {
+    margin-top: 0.625rem;
+    padding-right: theme("padding.6");
+  }
+
+  @media (min-width: theme("screens.xl")) {
+    .card__body {
+      padding-left: theme("padding.6");
+      padding-bottom: theme("padding[3.5]");
+      padding-right: theme("padding.16");
+    }
+  }
+
+  .card__question {
+    font-size: 0.828125rem;
+    color: theme("colors.text-very-dark-grayish-blue");
+  }
+
+  .card__answer {
+    color: theme("colors.text-dark-grayish-blue");
+    padding-top: theme("padding[2.5]");
+    padding-right: theme("padding.8");
+  }
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .group {
+    padding-block: theme("padding[4]");
+    border-bottom: 0.0625rem solid theme("colors.divider-grayish-blue");
+  }
+}
+
+main {
+  background: linear-gradient(
+    0deg,
+    theme("colors.gradient-soft-blue") 0%,
+    theme("colors.gradient-soft-violet") 100%
+  );
+}
+
+hr {
+  color: theme("colors.divider-grayish-blue");
+}
